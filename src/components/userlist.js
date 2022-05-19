@@ -1,4 +1,5 @@
 import React from 'react';
+import { editUser } from '../actions';
 
 //import users from '../reducers/users';
 import User from './user';
@@ -8,7 +9,9 @@ import User from './user';
 //        this.props.deleteUser(id)
  //   }
 
- const UserList = ({users}) => {
+ 
+
+ const UserList = ({users, deleteUser, editUser}) => {
     console.log(users)
     let users1 = []
     users1 = users;
@@ -24,7 +27,7 @@ import User from './user';
               <th>Sex</th>
          </tr> 
           </thead>
-          {users1.map(user=> <User key={user.id} user={user}/>)}
+          {users1.map(user=> <User key={user.id} user={user} deleteUser={deleteUser} editUser={editUser}/>)}
       </table>
     )
   }

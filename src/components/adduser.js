@@ -55,15 +55,15 @@ class AddUser extends Component {
         
     }
 
-    editUser = (data) => {
+    editUser = (user) => {
         this.setState({
-            id: data.id,
-            firstName: data.firstName, 
-            lastName: data.lastName,
-            sex: data.sex,
-            age: data.age,
-            password: data.password,
-            password2: data.password2
+            id: user.id,
+            firstName: user.firstName, 
+            lastName: user.lastName,
+            sex: user.sex,
+            age: user.age,
+            password: user.password,
+            password2: user.password2
         })
     }
 

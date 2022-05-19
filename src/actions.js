@@ -9,8 +9,8 @@ let addUser = (user) => {
     return { type: ACTION_ADDUSER, user:user}
 }
 
-let editUser = (id) => {
-    return { type: ACTION_EDIT_USER, id: id}
+let editUser = (user) => {
+    return { type: ACTION_EDIT_USER, user:user}
 }
 
 let setSearch = (new_search) => {

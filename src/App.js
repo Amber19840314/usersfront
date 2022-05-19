@@ -40,12 +40,27 @@ class App extends Component {
 
   }
 
+deleteUser = (id) => {
+  this.props.deleteUser(id)
+}
+
+editUser = (user) => {
+  this.setState({
+    id:user.id,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    sex: user.sex,
+    age: user.age,
+    password: user.password,
+    password2: user.password2
+  })
+}
   render() {
     return (
       <div className="App">
         <h2>User List</h2>
         <AddUser addUser={this.props.addUser}/>
-        <UserList users={this.props.users} search={this.props.search} editUser={this.props.editUser}/>
+        <UserList users={this.props.users} search={this.props.search} editUser={this.props.editUser} deleteUser={this.props.deleteUser}/>
         <Search currentValue={this.props.search} setSearch={this.props.setSearch}/>
       </div>
     );
@@ -64,15 +79,12 @@ const mapDispatchToProps = dispatch => {
     setSearch: search => {
       dispatch({type: actions.ACTION_SET_SEARCH, search: search})
     },
-   // addUser: (firstName, lastName, age, sex, password, password2) => {
-    //  dispatch({type: actions.ACTION_ADDUSER, firstName: firstName, lastName: lastName, age: age, sex: sex, password: password, password2: password2})
-   // },
 
-   addUser: (user) => {
+   addUser: user => {
      dispatch({type: actions.ACTION_ADDUSER, user:user})
    },
-    editUser: id  => {
-      dispatch({type: actions.ACTION_EDIT_USER, id: id})
+    editUser: user  => {
+      dispatch({type: actions.ACTION_EDIT_USER, user:user})
     },
 
     deleteUser: id  => {
