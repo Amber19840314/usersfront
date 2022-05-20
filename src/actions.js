@@ -10,15 +10,16 @@ let addUser = (user) => {
 }
 
 let editUser = (user) => {
+    console.log(1)
     return { type: ACTION_EDIT_USER, user:user}
 }
 
-let setSearch = (new_search) => {
-    return {type: ACTION_SET_SEARCH, search: new_search}
+let setSearch = (searchText) => {
+    return {type: ACTION_SET_SEARCH, searchText: searchText}
 }
 
 let deleteUser = (id) => {
     return {type: ACTION_DELETE_USER, id:id}
 }
 
-export {ACTION_ADDUSER, ACTION_EDIT_USER, ACTION_SET_SEARCH, ACTION_DELETE_USER, addUser, editUser, setSearch, deleteUser}
+export {ACTION_ADDUSER, ACTION_SET_SEARCH, ACTION_DELETE_USER, ACTION_EDIT_USER,editUser,addUser, setSearch, deleteUser}

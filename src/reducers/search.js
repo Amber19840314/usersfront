@@ -1,12 +1,20 @@
 
 import * as actions from '../actions'
 
-const searchR = (state='all', action) => {
-    console.log(state)
-    console.log(action)
-    switch (action.type) {
+const searchR = (state='', {type, searchText}) => {
+    //console.log('34'+ state)
+    console.log(type)
+    console.log(searchText)
+    switch (type) {
         case actions.ACTION_SET_SEARCH: 
-            return action.search
+
+         //   this.users.forEach((user)=> {
+         //          if(user.name.indexOf(onFilterTextChange) === -1){
+          //               return action.search
+          //          }
+           //     })
+           return state
+
         default:
             return state
     }

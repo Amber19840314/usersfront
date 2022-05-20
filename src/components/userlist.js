@@ -1,5 +1,6 @@
 import React from 'react';
-import { editUser } from '../actions';
+//import { editUser } from '../actions';
+import * as actions from '../actions'
 
 //import users from '../reducers/users';
 import User from './user';
@@ -14,7 +15,14 @@ import User from './user';
  const UserList = ({users, deleteUser, editUser}) => {
     console.log(users)
     let users1 = []
-    users1 = users;
+
+    users1 = users
+    
+   // this.users.forEach((user)=> {
+   //     if(user.name.indexOf(onFilterTextChange) === -1){
+   //         return
+   //     }
+   // })
     return (
       <table>
             <thead>
@@ -27,6 +35,7 @@ import User from './user';
               <th>Sex</th>
          </tr> 
           </thead>
+
           {users1.map(user=> <User key={user.id} user={user} deleteUser={deleteUser} editUser={editUser}/>)}
       </table>
     )

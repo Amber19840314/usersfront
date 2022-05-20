@@ -1,27 +1,39 @@
-import React  from 'react';
+import React  , {Component} from 'react';
 
-const Search = ({currentValue, setSearch}) => {
-    console.log(currentValue)
-    return (
-        <p>
-            <b>Show:</b>{' '}
-            {currentValue === 'all' ? (
-            <span>All</span>
-            ) : (
-            <button onClick={()=>setSearch('all')}>All</button>
-            )}{' '}
-            {currentValue === 'active' ? (
-            <span>Active</span>
-            ) : (
-            <button onClick={()=>setSearch('active')}>Active</button>
-            )}{' '}
-            {currentValue === 'completed' ? (
-            <span>Completed</span>
-            ) : (
-            <button onClick={()=>setSearch('completed')}>Completed</button>
-            )}
+
+//const Search = ({handleChangeSearch, searchText}) => {
+ //   console.log(handleChangeSearch)
+ //   return (
+ //       <p>
+         
+  //          Search: <input onChange={handleChangeSearch} value={searchText}></input>
+  //      </p>
+  //  )
+//}
+
+class Search extends Component {
+ constructor(props){
+     super(props)
+     this.state={
+        searchText: ''
+     }
+ }
+    
+    handleChangeSearch = e => {
+       this.setSearch(
+          e.target.value
+       )
+    }
+    
+    render(){
+
+       
+        return(
+            <p>
+         
+            Search: <input onChange={this.handleChangeSearch} value={this.props.searchText}></input>
         </p>
-    )
+        )
+    }
 }
-
 export default Search

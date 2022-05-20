@@ -40,6 +40,12 @@ class App extends Component {
 
   }
 
+  
+
+handleChangeSearch =(e)=> {
+  this.props.onFilterTextChange(e.target.value)
+}
+
 deleteUser = (id) => {
   this.props.deleteUser(id)
 }
@@ -55,13 +61,17 @@ editUser = (user) => {
     password2: user.password2
   })
 }
+
+
   render() {
+    
     return (
       <div className="App">
         <h2>User List</h2>
-        <AddUser addUser={this.props.addUser}/>
-        <UserList users={this.props.users} search={this.props.search} editUser={this.props.editUser} deleteUser={this.props.deleteUser}/>
-        <Search currentValue={this.props.search} setSearch={this.props.setSearch}/>
+        <AddUser addUser={this.props.addUser} editUser={this.props.editUser}/>
+        <UserList users={this.props.users} search={this.props.search} editUser={this.props.editUser} deleteUser={this.props.deleteUser} 
+        onFilterTextChange={this.props.onFilterTextChange}/>
+        <Search />
       </div>
     );
   }
@@ -76,14 +86,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSearch: search => {
-      dispatch({type: actions.ACTION_SET_SEARCH, search: search})
+    setSearch: searchText => {
+      dispatch({type: actions.ACTION_SET_SEARCH, searchText: searchText})
     },
 
    addUser: user => {
      dispatch({type: actions.ACTION_ADDUSER, user:user})
    },
     editUser: user  => {
+      console.log(2)
       dispatch({type: actions.ACTION_EDIT_USER, user:user})
     },
 

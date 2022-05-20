@@ -1,12 +1,12 @@
 import React  from 'react';
 
-const UserList = ({user,deleteUser,editUser}) => {
+const User = ({user,deleteUser,editUser}) => {
    
     return(
 
         <tbody>
       <tr>
-      <th><button onClick={()=>editUser(user.id)}>edit</button></th>
+      <th><button onClick={()=>editUser(user)}>edit</button></th>
       <th><button onClick={()=>deleteUser(user.id)}>delete</button></th>
       <th >{user.firstName}</th>
       <th >{user.lastName}</th>
@@ -18,4 +18,4 @@ const UserList = ({user,deleteUser,editUser}) => {
     )
   }
 
-export default UserList
+export default User
